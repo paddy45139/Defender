@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEON DEFENDER</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="wrap">
+    <canvas id="game" width="1280" height="720"></canvas>
+
+    <div id="hud" class="hidden">
+      <div>SCORE <span id="score">0</span></div>
+      <div>WAVE <span id="wave">1</span></div>
+      <div>LIVES <span id="lives">3</span></div>
+      <div>HUMANS <span id="humans">10</span></div>
+    </div>
+
+    <div id="menu" class="screen">
+      <h1>NEON<br />DEFENDER</h1>
+      <p class="tag">Protect the humans. Destroy the invaders.</p>
+      <button id="startBtn">START GAME</button>
+      <div class="controls">
+        <div><b>WASD / ARROWS</b> move</div>
+        <div><b>SPACE</b> shoot</div>
+        <div><b>SHIFT</b> boost</div>
+        <div><b>P / ESC</b> pause</div>
+      </div>
+    </div>
+
+    <div id="pause" class="screen hidden">
+      <h2>PAUSED</h2>
+      <p class="tag">Press P or ESC to resume</p>
+    </div>
+
+    <div id="over" class="screen hidden">
+      <h2 class="red">GAME OVER</h2>
+      <p class="stat">FINAL SCORE <span id="finalScore">0</span></p>
+      <p class="stat">WAVE REACHED <span id="finalWave">1</span></p>
+      <button id="restartBtn">RESTART</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

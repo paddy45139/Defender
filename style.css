@@ -1,0 +1,68 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: #02020a; overflow: hidden; }
+body {
+  font-family: "Courier New", monospace;
+  color: #e6f7ff;
+  display: flex; align-items: center; justify-content: center;
+}
+#wrap {
+  position: relative;
+  width: min(100vw, calc(100vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+}
+canvas { width: 100%; height: 100%; display: block; background: #040414; }
+
+#hud {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between;
+  padding: 1.2% 2.5%;
+  font-size: clamp(12px, 1.6vw, 22px);
+  letter-spacing: 3px; font-weight: bold;
+  color: #7af6ff; text-shadow: 0 0 8px #00e5ff;
+  pointer-events: none;
+}
+#hud span { color: #fff; margin-left: 6px; }
+
+.screen {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2.2vh; text-align: center;
+  background: radial-gradient(ellipse at center, rgba(20, 0, 40, 0.35), rgba(0, 0, 10, 0.75));
+}
+.hidden { display: none !important; }
+
+h1, h2 {
+  font-size: clamp(36px, 7vw, 96px); line-height: 0.95; letter-spacing: 8px;
+  color: #fff;
+  text-shadow: 0 0 6px #00e5ff, 0 0 20px #00e5ff, 0 0 40px #b400ff;
+  animation: flicker 3s infinite;
+}
+h2 { font-size: clamp(30px, 5.5vw, 76px); }
+h2.red { text-shadow: 0 0 6px #ff2050, 0 0 20px #ff2050, 0 0 40px #b400ff; }
+.tag { color: #c99bff; letter-spacing: 2px; font-size: clamp(12px, 1.4vw, 18px); }
+.stat { font-size: clamp(14px, 2vw, 26px); letter-spacing: 3px; color: #7af6ff; }
+.stat span { color: #fff; }
+
+button {
+  font-family: inherit; font-weight: bold;
+  font-size: clamp(14px, 1.8vw, 24px); letter-spacing: 4px;
+  padding: 0.7em 1.8em; cursor: pointer;
+  color: #00e5ff; background: rgba(0, 20, 40, 0.6);
+  border: 2px solid #00e5ff; border-radius: 4px;
+  box-shadow: 0 0 12px #00e5ff, inset 0 0 12px rgba(0, 229, 255, 0.4);
+  transition: all 0.15s;
+}
+button:hover { color: #02020a; background: #00e5ff; box-shadow: 0 0 30px #00e5ff; }
+
+.controls {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 6px 30px;
+  font-size: clamp(11px, 1.2vw, 16px); color: #9ab; letter-spacing: 1px;
+}
+.controls b { color: #ff4fd8; }
+
+@keyframes flicker {
+  0%, 92%, 100% { opacity: 1; }
+  94% { opacity: 0.7; }
+  96% { opacity: 1; }
+  97% { opacity: 0.8; }
+}
